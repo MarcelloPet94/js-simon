@@ -11,6 +11,8 @@ tramite il prompt(). Dopo che sono stati inseriti i 5 numeri,
 
 // genero 5 numeri random
 let contieneRand = [];
+let verificaRand = [];
+
 function stampaNumeri()
 {
     let count = 0;
@@ -28,14 +30,13 @@ function stampaNumeri()
 stampaNumeri();
 console.log(contieneRand);
 
-
 setTimeout(chiediSeRicorda() , 3000);
 
 // chiede 5 numeri e poi verifica se corrispondono ai precedenti generati
-function chiediSeRicorda(passaRandom)
+function chiediSeRicorda()
 {
     let ask = 0;
-    let verificaRand = [];
+
     while(ask < 5)
     {
         let utenteRicorda = parseInt(prompt("Ricordi?"));
@@ -43,14 +44,20 @@ function chiediSeRicorda(passaRandom)
         console.log(verificaRand);
         ask++;
     }
+    return verificaRand;
+}
 
-    if(passaRandom == verificaRand)
+function verificaNumeri(rand , user)
+{
+    if(rand === user)
     {
         console.log("Buona memoria");
     }
     else
     {
         console.log("Hai dimenticato qualcosa");
-    }
+    }   
+
 }
 
+verificaNumeri(contieneRand , verificaRand);
